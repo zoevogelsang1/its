@@ -64,7 +64,7 @@ def displaymessage():
 	message.configure(text = "Attempting to find SIS site. Make sure that the page is visible and text field is not already selected. ")
 
 def donemessage():
-	message.configure(text = "Page found. ")
+	message.configure(text = "")
 
 def clicked():
 	global cola, starta, enda, colb, startb, endb
@@ -90,7 +90,7 @@ def clicked():
 	while True: 
 		im = pyautogui.screenshot()
 		im.save("screenshot.png")
-		print ("screenshot taken")
+		print ("Attempting to find SIS site. Make sure that the page is visible and text field is not already selected. ")
 		if im.mode == 'RGBA':
 			im = im.convert('RGB')
 	
@@ -115,9 +115,14 @@ def clicked():
 		pyautogui.hotkey('command', 'v')		#paste
 		pyautogui.move(105,0)				#move to update 
 		pyautogui.click()
-		pyautogui.move(115,38)
+		if i > 5:
+			pyautogui.move(115,0)
+		else:
+			pyautogui.move(115,38)
 		pyautogui.click()
 		pyautogui.move(-580, 0)
+		if i > 5:
+			pyautogui.scroll(-100)
 		i = i+1
 
 
