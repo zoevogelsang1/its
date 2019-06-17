@@ -2,7 +2,7 @@ from tkinter import *
 from tkinter import filedialog
 import pandas as pd
 import pyautogui, time
-pyautogui.PAUSE 
+
 import pyperclip
 from PIL import Image
 from openpyxl import load_workbook
@@ -113,16 +113,16 @@ def clicked():
 		cpy = sheet[ colb +str(startb + i)].value	
 		pyperclip.copy(cpy)	
 		pyautogui.hotkey('command', 'v')		#paste
-		pyautogui.move(105,0)				#move to update 
+		pyautogui.move(105,0)				#moves to update. 
 		pyautogui.click()
-		if i > 5:
+		pyautogui.click()
+		if i >= 5:
 			pyautogui.move(115,0)
+			pyautogui.scroll(-15)
 		else:
 			pyautogui.move(115,38)
 		pyautogui.click()
 		pyautogui.move(-580, 0)
-		if i > 5:
-			pyautogui.scroll(-100)
 		i = i+1
 
 
